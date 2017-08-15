@@ -56,7 +56,9 @@
       }
 
       function stopWebcam() {
-          webcamStream.stop();
+        if (webcamStream) {
+          webcamStream.getTracks().forEach(function (track) { track.stop(); });
+        }
       }
       //---------------------
       // TAKE A SNAPSHOT CODE
